@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "settings": {
+    "siteName": "高山鐡道",
+    "siteNameEn": "Takayama Railway",
+    "description": "高山鐡道は、ROBLOX上の社員運行型鉄道プレースです。",
+    "apiBase": "https://bot-8w9w.onrender.com",
+    "footerNote": "© 高山鐡道 / Takayama Railway. ROBLOX上の架空の鉄道です。",
+    "links": [
+      { "label": "公式Discord", "href": "https://discord.gg/YYV3Hg5Edr" },
+      { "label": "ROBLOXで乗車", "href": "https://www.roblox.com/share?code=683e9230a1f5594c80711924561a60e0&type=ExperienceDetails&stamp=1771156181044" },
+      { "label": "ROBLOXグループ", "href": "https://www.roblox.com/ja/communities/980015141/unnamed#!/about" },
+      { "label": "中文", "href": "https://sites.google.com/view/takayama-railway-chinese" }
+    ]
+  },
+  "nav": [
+    { "label": "トップ", "page": "home" },
+    { "label": "高山鐡道とは", "page": "about" },
+    { "label": "路線図", "page": "map" },
+    { "label": "運賃", "page": "fare" },
+    { "label": "運行状況", "page": "status" },
+    { "label": "お知らせ", "page": "news" },
+    { "label": "写真集", "page": "photos" },
+    { "label": "小ネタ情報", "page": "trivia" },
+    { "label": "会社概要", "page": "company" }
+  ],
+  "home": {
+    "hero": "assets/img/header-main.jpg",
+    "heroTitle": "山に行こう。",
+    "heroSub": "何かを見つける旅に出よう。",
+    "newsCount": 3,
+    "extraNews": [
+      { "badge": "募集", "text": "開発者募集中！ご応募は公式Discordから", "href": "https://discord.gg/YYV3Hg5Edr" }
+    ],
+    "posters": [
+      { "src": "assets/img/poster-1.jpg", "alt": "山、走る。心、やすらぐ" },
+      { "src": "assets/img/poster-2.jpg", "alt": "会いたい人に会いに行こう" }
+    ],
+    "tagline": [["自然を", "駆け抜ける"], ["人を", "運び続ける"]],
+    "tiles": [
+      { "label": "路線図", "page": "map" },
+      { "label": "運賃", "page": "fare" },
+      { "label": "運行状況", "page": "status" },
+      { "label": "お知らせ", "page": "news" }
+    ],
+    "sections": [
+      { "title": "Discord", "text": "高山鐡道公式Discordはコチラ！\nお知らせ、求人情報をいち早く受け取ろう！", "buttonLabel": "公式Discordに参加する", "buttonHref": "https://discord.gg/YYV3Hg5Edr", "note": "※Discord利用規約をご確認ください。", "image": "assets/img/bg-discord.jpg" },
+      { "title": "今すぐ乗車", "text": "ご乗車はコチラから！（未開業です）", "buttonLabel": "ROBLOXで開く", "buttonHref": "https://www.roblox.com/share?code=683e9230a1f5594c80711924561a60e0&type=ExperienceDetails&stamp=1771156181044", "note": "", "image": "assets/img/bg-ride.jpg" }
+    ]
+  },
+  "pages": [
+    {
+      "id": "about", "file": "about.html", "title": "高山鐡道とは", "hero": "assets/img/header-main.jpg", "heroTitle": "", "heroSub": "",
+      "blocks": [
+        { "type": "heading", "text": "高山鐡道とは" },
+        { "type": "text", "text": "高山鐡道とは、世界最大規模のプレイヤー数を誇るゲーム、「ROBLOX」上に立ち上げられた社員運行型鉄道プレースです。\n美しい景色を眺めながら乗車する快適な列車の旅をデジタル空間で再現しており、至高のひと時を感じられるような設計になっております。\n高山本線は架空都市、京堂府桜が丘町桜が丘駅と京堂府京堂市中央区京堂駅を結び、京堂府の空の玄関口、京堂空港と京堂駅を結ぶ京堂空港アクセス線にも相互乗り入れしています。これにより、高山鐡道沿線の山丘城、掛橋渓谷、(お楽しみ)などたくさんの観光地へのアクセスがより便利になっております。" },
+        { "type": "heading", "text": "運行について" },
+        { "type": "text", "text": "運行は入社試験を突破し、技術を研鑽した社員の運転士が運転し、同じく訓練を積んだ車掌が補佐します。\n運行指示は指令室員が行い、事故のない運行を目指しています。" },
+        { "type": "subheading", "text": "フリードライブ" },
+        { "type": "note", "text": "準備中です。" }
+      ]
+    },
+    {
+      "id": "map", "file": "map.html", "title": "路線図", "hero": "assets/img/header-main.jpg", "heroTitle": "", "heroSub": "",
+      "blocks": [
+        { "type": "image", "src": "assets/img/route-map.png", "caption": "高山線はTK、足洗線はTAです。画像を押すと大きく表示されます。", "link": true },
+        { "type": "heading", "text": "高山本線" },
+        { "type": "stations" },
+        { "type": "heading", "text": "足洗支線" },
+        { "type": "line", "items": [
+          { "code": "TK05", "name": "高山", "station": "takayama", "transfer": true },
+          { "name": "？？？" }, { "name": "転飯峠" }, { "name": "？？？" }, { "name": "足洗" }, { "name": "？？？" }, { "name": "？？？" }
+        ] }
+      ]
+    },
+    {
+      "id": "fare", "file": "fare.html", "title": "運賃", "hero": "assets/img/header-main.jpg", "heroTitle": "", "heroSub": "",
+      "blocks": [
+        { "type": "table", "style": "fare", "rows": [["初乗り運賃", "140円"], ["1駅ごと", "+40円"], ["特急券", "600円"]] },
+        { "type": "text", "text": "特急券のご予約、空席確認は Takayama EX をご利用ください。" },
+        { "type": "button", "label": "特急券のご購入はコチラから", "href": "https://smart-ex.takayama-railway.f5.si/" },
+        { "type": "note", "text": "試験導入中です。Takayama EX のページに移動します。" }
+      ]
+    },
+    {
+      "id": "status", "file": "status.html", "title": "運行状況", "hero": "assets/img/header-main.jpg", "heroTitle": "", "heroSub": "",
+      "blocks": [
+        { "type": "heading", "text": "運行予定" },
+        { "type": "shifts" },
+        { "type": "note", "text": "最新のお知らせはDiscordサーバーで受け取れます。" },
+        { "type": "heading", "text": "列車の現在位置" },
+        { "type": "text", "text": "列車の現在位置は「たかなび！」で確認できます。下のボタンからダウンロードしてください。" },
+        { "type": "button", "label": "たかなび！をダウンロード", "href": "https://drive.google.com/file/d/1RaoSWSV208W6H20hgLYSC95mSIHZEToF/view?usp=sharing" },
+        { "type": "note", "text": "右上のダウンロードボタンから、ご利用の端末にダウンロードしてご覧ください。" },
+        { "type": "subheading", "text": "利用規約" },
+        { "type": "list", "items": ["本アプリケーションはHTMLファイルです。", "任意のブラウザが必要です。", "遅れ等のご案内はHP内の運行状況ページをご利用ください。", "ファイルの再配布等はご遠慮ください。", "本ファイルをダウンロードしたことにより生じた損害について、一切の責任を負いかねます。", "特急券のご予約はTakayamaEXをご利用ください。詳しくは運賃ページをご覧ください。"] }
+      ]
+    },
+    {
+      "id": "photos", "file": "photos.html", "title": "写真集", "hero": "assets/img/header-main.jpg", "heroTitle": "", "heroSub": "",
+      "blocks": [
+        { "type": "gallery", "items": [
+          { "src": "assets/img/photo-2.jpg", "caption": "河掛橋の209系", "credit": "by yuchike" },
+          { "src": "assets/img/photo-1.jpg", "caption": "私の心は夏模様～♬", "credit": "by wakka0825" }
+        ] }
+      ]
+    },
+    {
+      "id": "trivia", "file": "trivia.html", "title": "小ネタ情報", "hero": "assets/img/header-main.jpg", "heroTitle": "", "heroSub": "",
+      "blocks": [
+        { "type": "text", "text": "高山鐵道の小ネタを主に飛ばしていくページです。" },
+        { "type": "heading", "text": "発車メロディー使用駅" },
+        { "type": "table", "rows": [["京堂", "使用なし"], ["西京堂", "スプリングボックス（制作 @kaus0671）"], ["山丘", "スキーの歌（制作 @kaus0671）"], ["寺沢", "七つの子（制作 @kaus0671）"], ["浅間", "メロディー（制作 @kaus0671）"], ["高山", "シャイニングスター（制作 @kaus0671）"], ["西高山", "銀河鉄道999 Aメロ＆サビ（制作 @kaus0671）"], ["北桜ケ丘", "使用なし"], ["桜ケ丘", "使用なし"]] },
+        { "type": "note", "text": "大体は @kaus0671 さんに制作してもらっています。" },
+        { "type": "heading", "text": "車両紹介" },
+        { "type": "note", "text": "準備中です。" }
+      ]
+    },
+    {
+      "id": "company", "file": "company.html", "title": "会社概要", "hero": "assets/img/takayama-1.jpg", "heroTitle": "", "heroSub": "",
+      "blocks": [
+        { "type": "heading", "text": "会社情報" },
+        { "type": "table", "rows": [["会社コード", "123456"], ["会社名", "高山鉄道株式会社"], ["会社英文名", "Takayama Railway Inc."], ["上場", "上場企業"], ["会社略称", "Takatetsu"], ["英文略称", "TRI"], ["株式コード", "XXXX"], ["現在株価（元）", "708 ▼1.00"]] },
+        { "type": "heading", "text": "親会社" },
+        { "type": "table", "rows": [["会社名", "高山鉄道ホールディングス株式会社\nTakayama Railway Holdings Inc."], ["持株比率", "100%"], ["事業内容", "グループ会社の経営管理・統括"], ["資本総額(Z$)", "47,500,000,000"], ["払込資本金(Z$)", "7,427,602,800"]] },
+        { "type": "heading", "text": "役員など" },
+        { "type": "table", "rows": [["責任者", "Yuchike"], ["幹事長", "kiritori"], ["経理", "神様仏様"], ["登記住所", "京堂府京堂市中区京駅1丁目1-1"], ["公式サイト", "https://yuchike.takayama-railway.f5.si"], ["設立日", "2025年11月15日"], ["最終認可変更日", "2026年5月1日"]] }
+      ]
+    }
+  ],
+  "newsPage": { "title": "お知らせ", "hero": "assets/img/takayama-1.jpg", "intro": "高山鐡道からのお知らせがここに表示されます。詳しいお知らせはDiscordサーバーからご覧ください。" },
+  "news": [
+    {
+      "id": "takanavi", "title": "たかなび！試験運用開始", "date": "", "badge": "NEW",
+      "summary": "列車の運用が随時リアルタイムで確認できるアプリケーションを開発しました！",
+      "blocks": [
+        { "type": "text", "text": "高山鐡道の列車走行位置が見れるアプリケーションを開発しました！ダウンロードは下のボタンから！" },
+        { "type": "button", "label": "たかなび！ダウンロードはコチラ", "href": "https://drive.google.com/file/d/1RaoSWSV208W6H20hgLYSC95mSIHZEToF/view?usp=sharing" },
+        { "type": "subheading", "text": "ダウンロード方法" },
+        { "type": "list", "ordered": true, "items": ["上のボタンを押す", "左上に表示される(ブラウザによって異なります)ダウンロードボタンをクリック", "ダウンロードしたファイルをブラウザで開く(iOSの場合、ファイルアプリからプレビュー可能)"] },
+        { "type": "subheading", "text": "利用規約" },
+        { "type": "list", "items": ["本アプリケーションはHTMLファイルです。", "任意のブラウザが必要です。", "遅れ等のご案内はHP内の運行状況ページをご利用ください。", "ファイルの再配布等はご遠慮ください。", "本ファイルをダウンロードしたことにより生じた損害について、一切の責任を負いかねます。", "特急券のご予約はTakayamaEXをご利用ください。詳しくは運賃ページをご覧ください。"] }
+      ]
+    },
+    {
+      "id": "route-map", "title": "新路線図完成！", "date": "", "badge": "NEW",
+      "summary": "新路線図ができました。",
+      "blocks": [
+        { "type": "image", "src": "assets/img/route-map.png", "caption": "", "link": true },
+        { "type": "text", "text": "高山鉄道の路線図が更新されました。 見た目は目の細かいパンダの鉄道のを参考にさせていただきました。\n現在計画中の路線はこの路線図に乗っていますが、京堂から先の空港線に関しましてはまだしかりとした計画が出ていないため記載しておりません。\n高山線はTK、足洗線がTAとなっております。\nフォントなどを変えて見やすいデザインにしましたが、結局小さくなってしまいました。あんまり効果がなさそうです。" }
+      ]
+    }
+  ],
+  "stations": [
+    { "slug": "sakuragaoka", "code": "TK01", "extraCode": "", "name": "桜が丘", "stops": "特急・急行・普通", "facilities": ["トイレあり", "有人", "特急券販売あり"], "transfer": "", "photos": ["assets/img/sakuragaoka-1.jpg", "assets/img/sakuragaoka-2.jpg"], "text": "" },
+    { "slug": "kitasakuragaoka", "code": "TK02", "extraCode": "", "name": "北桜が丘", "stops": "急行・普通", "facilities": ["トイレあり", "有人", "特急券販売なし"], "transfer": "", "photos": ["assets/img/kitasakuragaoka-1.jpg", "assets/img/kitasakuragaoka-2.jpg"], "text": "北桜ケ丘駅は、自分的には高山線内で一番質素な駅である。ホームには駅名すらない。改札口には申し訳程度に自動改札機が置かれている。また、券売機もあるが、隣の桜が丘とは大違いである。\nいつか改修されることを願っているばかりだ。" },
+    { "slug": "hirogiri", "code": "TK03", "extraCode": "", "name": "広桐", "stops": "急行・普通", "facilities": ["トイレあり", "有人", "特急券販売なし"], "transfer": "", "photos": ["assets/img/hirogiri-1.jpg", "assets/img/hirogiri-2.jpg"], "text": "広桐駅はあまり特徴のない駅ではあるが、ホームで改札口が違うという設計になっている。しかも、これの厄介なところは、現時点では踏切が設置されていないため、物理的に反対側に行くことができなくなっている状態である。いつか踏切ができることを願っている。\nまた、この駅の発車メロディーは「アスノヨゾラ哨戒班」の曲で、初のボカロ発車メロディーになっている。製作者はKaUsである。" },
+    { "slug": "nishitakayama", "code": "TK04", "extraCode": "", "name": "西高山", "stops": "急行・普通", "facilities": ["トイレなし", "有人", "特急券販売なし"], "transfer": "", "photos": ["assets/img/nishitakayama-1.jpg", "assets/img/sakuragaoka-2.jpg"], "text": "西高山駅は高山駅から約600mほどしか離れておらず、駅間が超近い駅である。またこの駅は2面2線の駅である。駅前の桜の咲いている季節外れの公園がある。また公園の隣には著作権がやばそうなモールがある。\n駅はバリアフリー化されていると思いきやスロープは桜が丘方面にしか行けない。歩道橋でホームとホームを繋いでいる。" },
+    { "slug": "takayama", "code": "TK05", "extraCode": "", "name": "高山", "stops": "特急・急行・普通", "facilities": ["トイレあり", "有人", "特急券販売あり", "エレベーターあり"], "transfer": "足洗支線", "photos": ["assets/img/takayama-1.jpg", "assets/img/takayama-2.jpg"], "text": "日々日々開発が進んでいるニュータウン。\n都会京堂と桜が丘に挟まれた土地で、土地開発は西高山には後れを取っているが、高山鐡道のしゃちょーは高山が発展することを見込んで本社を高山駅近くに建設した。\n高山鐡道本社は一階が車庫になっており、今のところ、高山鐡道で走るすべての列車が格納されている。\n二階には列車保管スペースもあり、高山市民の皆様にくつろいでいただけるスペースを創出している(つもりだ)。\n駅前にはバスロータリーとタクシーロータリーも備え付けており、駅前のスーパー高山には毎日多くの買い物客が訪れる。" },
+    { "slug": "asama", "code": "TK06", "extraCode": "", "name": "浅間", "stops": "普通", "facilities": ["トイレなし", "無人", "特急券販売なし"], "transfer": "", "photos": ["assets/img/asama-1.jpg", "assets/img/asama-2.jpg"], "text": "リンゴ畑に囲まれたのどかな駅。\n無人駅で閑散としているが、通勤時間帯には多くの人が乗降する。近くには浅間神社があり、大きな桜の木が受験合格が叶うとして有名。ぜひ一回は訪れてほしい。\n高山鐡道本線内では珍しい曲線の駅で、高山駅から山と山の間の曲がりくねった谷を走行する。京堂駅側は直線で、盆地が続く。" },
+    { "slug": "terasawa", "code": "TK07", "extraCode": "", "name": "寺沢", "stops": "普通", "facilities": ["トイレなし", "有人", "特急券販売なし"], "transfer": "", "photos": ["assets/img/terasawa-1.jpg", "assets/img/terasawa-2.jpg"], "text": "都会と山、高山村と京堂市の境目に位置する駅。\n浅間と寺沢の間で高山鐡道の列車たちは想像を絶する深さの谷を越える。視界を切り裂く列車の疾走感が、戦慄を甘美な陶酔へと変えていく。この壮大な渓谷を一望できる展望台を寺沢トンネルの上に設けている。入場料は無料。\n高山市は人口増加が著しいため、寺沢駅付近の人口増加に伴って駅前ロータリーを増設予定。市立図書館も2026夏には建設予定。乞うご期待。\nしゃちょーの別荘がある" },
+    { "slug": "yamaoka", "code": "TK08", "extraCode": "", "name": "山丘", "stops": "急行・普通", "facilities": ["トイレ設置予定", "有人", "特急券販売なし"], "transfer": "", "photos": ["assets/img/yamaoka-1.jpg", "assets/img/yamaoka-2.jpg"], "text": "山岡城の城下町に位置する駅である。\n山岡城は1570年に築城。山岡城の城主は戦国の名将、山岡氏である。もともと付近の地名は蓼科であったが、住民が城主の名前を地名にしようと、行政に働きかけた結果、山丘になった。(地名登録の際に、担当者が岡の漢字を間違えた。)\n※山丘駅は京堂市からの25億円のご支援の下建設いたしました。京堂市様のご支援に心より感謝申し上げます。\n400年以上続く山岡城城下町の歴史を感じてみませんか？" },
+    { "slug": "nishikyodo", "code": "TK09", "extraCode": "", "name": "西京堂", "stops": "急行・普通", "facilities": ["トイレ設置予定", "有人", "特急券販売なし", "エレベーターあり"], "transfer": "", "photos": ["assets/img/nishikyodo-1.jpg", "assets/img/nishikyodo-2.jpg"], "text": "京堂城下町の入り口として戦国時代から役目を果たしてきた京堂川の横に位置する高架駅。\n一日の乗降人数は隣の京堂駅に次いで二番目であり、ここから京堂市の市街地が始まる。隣の京堂駅とは路面電車の電停2個分くらい非常に近い。高山鐡道高山本線の駅では唯一の都市型の高架駅である。\n利用人数は多いのに築年数は古く、建て替えも検討しているらしい。" },
+    { "slug": "kyodo", "code": "TK10", "extraCode": "KK00", "name": "京堂", "stops": "特急・急行・普通", "facilities": ["トイレ多分ある", "有人", "特急券あり？"], "transfer": "空港線", "photos": ["assets/img/kyodo-1.jpg", "assets/img/kyodo-2.jpg"], "text": "地味に初めて書きます（ゆーちけーです）。京堂駅は京堂府の県庁所在地であり、京堂駅は高山線内一番大きい駅であるそうです。京堂駅は京堂空港鉄道株式会社の空港線に乗り換えることができます。また、高山線から直通する運用もあります。\n乗降客数は高山線内1番多いです。" }
+  ],
+  "images": [
+    "assets/img/header-main.jpg", "assets/img/poster-1.jpg", "assets/img/poster-2.jpg", "assets/img/bg-discord.jpg", "assets/img/bg-ride.jpg",
+    "assets/img/route-map.png", "assets/img/photo-1.jpg", "assets/img/photo-2.jpg", "assets/img/logo-wide.jpg", "assets/img/logo-square.jpg",
+    "assets/img/sakuragaoka-1.jpg", "assets/img/sakuragaoka-2.jpg", "assets/img/kitasakuragaoka-1.jpg", "assets/img/kitasakuragaoka-2.jpg",
+    "assets/img/hirogiri-1.jpg", "assets/img/hirogiri-2.jpg", "assets/img/nishitakayama-1.jpg", "assets/img/takayama-1.jpg", "assets/img/takayama-2.jpg",
+    "assets/img/asama-1.jpg", "assets/img/asama-2.jpg", "assets/img/terasawa-1.jpg", "assets/img/terasawa-2.jpg", "assets/img/yamaoka-1.jpg",
+    "assets/img/yamaoka-2.jpg", "assets/img/nishikyodo-1.jpg", "assets/img/nishikyodo-2.jpg", "assets/img/kyodo-1.jpg", "assets/img/kyodo-2.jpg"
+  ]
+}
