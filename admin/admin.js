@@ -157,7 +157,105 @@
     return h('input', Object.assign({ type: 'text', value: obj[key] == null ? '' : obj[key], oninput: function (e) { obj[key] = e.target.value; markDirty(); } }, attrs || {}));
   }
   function area(obj, key, attrs) {
-    return h('textarea', Object.assign({ value: obj[key] == null ? '' : obj[key], oninput: function (e) { obj[key] = e.target.value; markDirty(); } }, attrs || {}));
+    var ta = h('textarea', Object.assign({ value: obj[key] == null ? '' : obj[key], oninput: function (e) { obj[key] = e.target.value; markDirty(); if (counter) updateCount(); } }, attrs || {}));
+    // 2行以上の文章欄には、下に便利ボタンを付ける(表のマスのような1行の欄には付けない)
+    if (!attrs || !attrs.rows || attrs.rows < 2) return ta;
+    var counter = h('span', { class: 'tool-count' });
+    function updateCount() { counter.textContent = ta.value.replace(/\n/g, '').length + '文字'; }
+    updateCount();
+    return h('div', { class: 'text-tools-wrap' }, ta, textTools(ta, counter, updateCount));
+  }
+
+  // ---------- 文章の便利ボタン ----------
+  var JP = '぀-ヿ㐀-鿿ｦ-ﾟ々〆ー';
+  var TOOLS = {
+    // 行の終わりに「。」を付ける(すでに句読点・記号・カッコで終わる行、URLやリンクで終わる行はそのまま)。全角のカンマ・ピリオドも直す
+    punct: function (v) {
+      return v.split('\n').map(function (line) {
+        var t = line.replace(/[ \t]+$/, '');
+        t = t.replace(new RegExp('([' + JP + '])[，,](?=[' + JP + '\\s])', 'g'), '$1、').replace(new RegExp('([' + JP + '])[．](?=[' + JP + '\\s]|$)', 'g'), '$1。');
+        if (!t.trim()) return t;
+        if (new RegExp('[' + JP + 'a-zA-Z0-9０-９]$').test(t) && !/https?:\/\/\S+$/.test(t) && !/^\s*[-・*※]/.test(t)) return t + '。';
+        return t;
+      }).join('\n');
+    },
+    // 全角の英数字を半角に、半角カタカナを全角に
+    width: function (v) {
+      return v.replace(/[Ａ-Ｚａ-ｚ０-９]/g, function (c) { return String.fromCharCode(c.charCodeAt(0) - 0xFEE0); })
+        .replace(/[ｦ-ﾟ]+[ﾞﾟ]?/g, function (s) { return s.normalize('NFKC'); });
+    },
+    // 行末の空白・連続した空白・余分な空行を整える
+    space: function (v) {
+      return v.split('\n').map(function (l) { return l.replace(/[ \t]+$/, '').replace(/ {2,}/g, ' '); }).join('\n')
+        .replace(/\n{3,}/g, '\n\n').replace(/^\s*\n/, '').replace(/\n\s*$/, '');
+    },
+    // 「!」「?」を全角に、「...」を「…」に
+    marks: function (v) {
+      return v.replace(new RegExp('([' + JP + '])!', 'g'), '$1！').replace(new RegExp('([' + JP + '])\\?', 'g'), '$1？').replace(/\.{3}/g, '…');
+    }
+  };
+
+  function textTools(ta, counter, updateCount) {
+    var undoValue = null;
+    var undoBtn = btn('↩ 元に戻す', function () {
+      if (undoValue == null) return;
+      setValue(undoValue, true);
+      undoValue = null; undoBtn.style.display = 'none';
+    }, 'tool undo');
+    undoBtn.style.display = 'none';
+
+    function setValue(v, isUndo) {
+      if (!isUndo) undoValue = ta.value;
+      ta.value = v;
+      ta.dispatchEvent(new Event('input'));
+      if (!isUndo) undoBtn.style.display = '';
+    }
+    function whole(fn, label) {
+      return btn(label, function () {
+        var before = ta.value, after = fn(before);
+        if (after === before) return flashTool(this, '変更なし');
+        setValue(after);
+        flashTool(this, '✓');
+      }, 'tool');
+    }
+    // 選んだ部分を包む(選んでいなければ見本を入れて選ぶ)
+    function wrapSel(before, after, sample) {
+      var s = ta.selectionStart, e = ta.selectionEnd, v = ta.value;
+      var inner = v.slice(s, e) || sample;
+      setValue(v.slice(0, s) + before + inner + after + v.slice(e));
+      ta.focus();
+      ta.setSelectionRange(s + before.length, s + before.length + inner.length);
+    }
+    function insert(text) {
+      var s = ta.selectionStart, e = ta.selectionEnd, v = ta.value;
+      setValue(v.slice(0, s) + text + v.slice(e));
+      ta.focus();
+      ta.setSelectionRange(s + text.length, s + text.length);
+    }
+    var symbol = h('select', { class: 'tool-select', title: '記号を入れる', onchange: function (e) { if (e.target.value) insert(e.target.value); e.target.value = ''; } },
+      [['', '記号…'], ['※', '※'], ['→', '→'], ['★', '★'], ['☆', '☆'], ['●', '●'], ['■', '■'], ['〜', '〜'], ['…', '…'], ['「」', '「」'], ['『』', '『』'], ['♪', '♪'], ['✅', '✅'], ['⚠️', '⚠️'], ['🚄', '🚄'], ['🚉', '🚉']]
+        .map(function (o) { return h('option', { value: o[0], text: o[1] }); }));
+    function today() { var d = new Date(); return d.getFullYear() + '/' + (d.getMonth() + 1) + '/' + d.getDate(); }
+    return h('div', { class: 'text-tools' },
+      whole(TOOLS.punct, '。句読点をつける'),
+      whole(TOOLS.width, '英数字を半角に'),
+      whole(TOOLS.marks, '！？を全角に'),
+      whole(TOOLS.space, '空白・空行を整える'),
+      btn('B 太字', function () { wrapSel('**', '**', '太字'); }, 'tool'),
+      btn('🔗 リンク', function () {
+        var url = window.prompt('リンク先のURL(またはページのファイル名)を入れてください', 'https://');
+        if (!url || url === 'https://') return;
+        wrapSel('[', '](' + url.trim() + ')', 'リンクの文字');
+      }, 'tool'),
+      btn('📅 今日の日付', function () { insert(today()); }, 'tool'),
+      symbol, undoBtn, counter);
+  }
+
+  function flashTool(button, label) {
+    var orig = button.textContent;
+    button.textContent = label;
+    button.disabled = true;
+    setTimeout(function () { button.textContent = orig; button.disabled = false; }, 900);
   }
   function num(obj, key, attrs) {
     return h('input', Object.assign({ type: 'number', value: obj[key] == null ? '' : obj[key], oninput: function (e) { obj[key] = Number(e.target.value) || 0; markDirty(); } }, attrs || {}));

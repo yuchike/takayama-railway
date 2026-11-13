@@ -98,6 +98,18 @@ body.admin { background: #eef2f7; }
 .admin .label { font-weight: 700; font-size: .9rem; margin: 18px 0 8px; color: #2b3443; }
 .memo { width: 170px !important; }
 
+/* 文章の便利ボタン */
+.text-tools-wrap textarea { border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.text-tools {
+  display: flex; flex-wrap: wrap; gap: 4px; align-items: center;
+  padding: 6px 8px; border: 1.5px solid #d5dbe5; border-top: 0; border-radius: 0 0 10px 10px; background: #f4f6fa;
+}
+.btn.tool { padding: 3px 8px; font-size: .75rem; font-weight: 600; border-radius: 7px; border-color: #d5dbe5; background: #fff; }
+.btn.tool:hover { background: #eef2fb; }
+.btn.tool.undo { color: #a15c00; border-color: #f0d2a8; }
+.admin select.tool-select { width: auto; padding: 3px 6px; font-size: .75rem; border-radius: 7px; }
+.tool-count { margin-left: auto; font-size: .72rem; color: var(--muted); }
+
 /* タブの説明 */
 .tab-help { margin: 0 0 14px; padding: 10px 14px; border-radius: 10px; background: #e8eefb; color: #26407e; font-size: .88rem; }
 .flash-wrap { padding: 0 20px; }
