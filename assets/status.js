@@ -28,7 +28,7 @@
     .then(function (data) {
       clearTimeout(slow); clearTimeout(timer);
       var shifts = (data && data.shifts) || [];
-      if (!shifts.length) return message('現在、運行予定はありません。');
+      if (!shifts.length) return message('なし');
       box.innerHTML = '';
       shifts.forEach(function (s) {
         var card = el('div', 'shift');

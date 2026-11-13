@@ -319,6 +319,17 @@ th { width: 34%; color: var(--muted); font-weight: 700; font-size: .92rem; backg
 .center { text-align: center; }
 .done-mark { width: 72px; height: 72px; margin: 4px auto 12px; border-radius: 50%; background: var(--green); color: #fff; display: grid; place-items: center; font-size: 2.2rem; font-weight: 900; }
 .g-recaptcha { margin: 10px 0; display: flex; justify-content: center; }
+.method { border: 2px solid var(--line); border-radius: 14px; padding: 16px 18px; margin: 12px 0; }
+.method h2 { font-size: 1.05rem; margin: 0 0 4px; font-family: var(--display); }
+.method .button { margin-top: 8px; }
+.game-code { display: flex; justify-content: center; gap: 8px; margin: 18px 0; }
+.game-code span {
+  width: 46px; height: 60px; display: grid; place-items: center;
+  border-radius: 12px; background: var(--navy); color: #fff;
+  font-family: ui-monospace, Consolas, monospace; font-size: 2rem; font-weight: 700;
+}
+.small-spinner { display: inline-block; width: 14px; height: 14px; border-width: 2px; margin: 0 8px -2px 0; vertical-align: baseline; }
+@media (max-width: 380px) { .game-code span { width: 38px; height: 52px; font-size: 1.6rem; } }
 
 /* ---------- responsive ---------- */
 @media (max-width: 760px) {
