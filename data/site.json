@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "settings": {
     "siteName": "高山鐡道",
     "siteNameEn": "Takayama Railway",
@@ -23,7 +23,15 @@
         "label": "中文",
         "href": "https://sites.google.com/view/takayama-railway-chinese"
       }
-    ]
+    ],
+    "logoWide": "assets/img/logo-wide.jpg",
+    "logoSquare": "assets/img/logo-square.jpg",
+    "theme": {
+      "navy": "#14286e",
+      "green": "#1f9a55",
+      "lime": "#c6f26b",
+      "footer": "#0b1640"
+    }
   },
   "nav": [
     {
@@ -130,7 +138,17 @@
         "note": "",
         "image": "assets/img/bg-ride.jpg"
       }
-    ]
+    ],
+    "newsTitle": "最新のお知らせ",
+    "order": [
+      "news",
+      "posters",
+      "tagline",
+      "tiles",
+      "sections",
+      "blocks"
+    ],
+    "blocks": []
   },
   "pages": [
     {
@@ -182,48 +200,7 @@
           "link": true
         },
         {
-          "type": "heading",
-          "text": "高山本線"
-        },
-        {
-          "type": "stations"
-        },
-        {
-          "type": "heading",
-          "text": "足洗支線"
-        },
-        {
-          "type": "line",
-          "items": [
-            {
-              "code": "TK05 TA01",
-              "name": "高山",
-              "station": "takayama",
-              "transfer": true
-            },
-            {
-              "name": "葉河",
-              "code": "TA02",
-              "station": "st-mwf5dmjmqyv"
-            },
-            {
-              "name": "転飯峠",
-              "code": "TA03",
-              "station": "st-mwf5o0dj1j9"
-            },
-            {
-              "name": "？？？"
-            },
-            {
-              "name": "足洗"
-            },
-            {
-              "name": "？？？"
-            },
-            {
-              "name": "？？？"
-            }
-          ]
+          "type": "lines"
         }
       ]
     },
@@ -816,5 +793,77 @@
     "assets/img/nishikyodo-2.jpg",
     "assets/img/kyodo-1.jpg",
     "assets/img/kyodo-2.jpg"
+  ],
+  "lines": [
+    {
+      "id": "takayama",
+      "name": "高山本線",
+      "color": "#1f9a55",
+      "note": "",
+      "stops": [
+        {
+          "station": "sakuragaoka"
+        },
+        {
+          "station": "kitasakuragaoka"
+        },
+        {
+          "station": "hirogiri"
+        },
+        {
+          "station": "nishitakayama"
+        },
+        {
+          "station": "takayama"
+        },
+        {
+          "station": "asama"
+        },
+        {
+          "station": "terasawa"
+        },
+        {
+          "station": "yamaoka"
+        },
+        {
+          "station": "nishikyodo"
+        },
+        {
+          "station": "kyodo"
+        }
+      ]
+    },
+    {
+      "id": "ashiarai",
+      "name": "足洗支線",
+      "color": "#e9832b",
+      "note": "",
+      "stops": [
+        {
+          "station": "takayama",
+          "code": "TA01"
+        },
+        {
+          "station": "st-mwf5dmjmqyv",
+          "code": "TA02"
+        },
+        {
+          "station": "st-mwf5o0dj1j9",
+          "code": "TA03"
+        },
+        {
+          "name": "？？？"
+        },
+        {
+          "name": "足洗"
+        },
+        {
+          "name": "？？？"
+        },
+        {
+          "name": "？？？"
+        }
+      ]
+    }
   ]
 }
