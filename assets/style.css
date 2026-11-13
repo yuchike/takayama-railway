@@ -171,7 +171,26 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 8px; }
 .tagline span { display: inline-block; }
 .tagline span:first-child { color: var(--green); }
 
-.tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 0 0 56px; }
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin: 0 0 56px; }
+.home.no-overlap .news-strip { margin-top: 0; }
+
+/* 写真の無いページのタイトル */
+.page-title { background: linear-gradient(120deg, var(--navy) 0%, var(--navy-deep) 100%); color: #fff; }
+.page-title .hero-inner { padding: 40px 16px 32px; }
+.page-title h1 { margin: 0; font-family: var(--display); font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: .06em; }
+.page-title h1::after { content: ""; display: block; width: 56px; height: 5px; margin-top: 12px; background: var(--lime); border-radius: 3px; }
+.page-title p { margin: 8px 0 0; opacity: .9; }
+
+/* 部品 */
+.divider { border: 0; height: 2px; background: var(--line); margin: 32px 0; }
+.video { position: relative; aspect-ratio: 16 / 9; margin: 20px 0 8px; border-radius: 12px; overflow: hidden; background: #000; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; margin: 24px 0; }
+.two-col figure { margin: 0; }
+.two-col.img-right figure { order: 2; }
+.two-col h3 { margin-top: 0; }
+.center { text-align: center; }
+@media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } .two-col.img-right figure { order: 0; } }
 .tile {
   position: relative; overflow: hidden; aspect-ratio: 16 / 10; border-radius: var(--radius);
   background: #0d0f12; color: #fff; text-decoration: none;
@@ -202,15 +221,15 @@ figcaption { color: var(--muted); font-size: .9rem; margin-top: 8px; }
 
 /* ---------- route map / stations ---------- */
 .route-map img { border: 1px solid var(--line); background: #fff; }
-.line { list-style: none; padding: 0 0 0 4px; margin: 0; position: relative; }
-.line::before { content: ""; position: absolute; left: 18px; top: 18px; bottom: 18px; width: 6px; border-radius: 3px; background: var(--green); }
-.line.branch::before { background: repeating-linear-gradient(180deg, #e9832b 0 14px, transparent 14px 20px); }
+.line { list-style: none; padding: 0 0 0 4px; margin: 0 0 8px; position: relative; }
+.line::before { content: ""; position: absolute; left: 18px; top: 18px; bottom: 18px; width: 6px; border-radius: 3px; background: var(--line-color, var(--green)); }
 .line li { position: relative; display: flex; align-items: center; gap: 12px; min-height: 52px; padding-left: 44px; }
 .line li::before {
   content: ""; position: absolute; left: 9px; width: 24px; height: 24px; border-radius: 50%;
-  background: #fff; border: 5px solid var(--green); box-sizing: border-box;
+  background: #fff; border: 5px solid var(--line-color, var(--green)); box-sizing: border-box;
 }
-.line.branch li::before { border-color: #e9832b; }
+.prose h2.line-title { border-left-color: var(--line-color, var(--green)); }
+.station-nav .line-name { font-size: .85rem; color: #fff; background: var(--line-color, var(--green)); padding: 2px 12px; border-radius: 999px; align-self: center; }
 .line li.transfer::before { border-color: var(--navy); background: var(--lime); }
 .line a, .line .name { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; }
 .line a:hover .name { color: var(--green); }
