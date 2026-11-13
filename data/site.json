@@ -794,7 +794,11 @@
       "extraCode": "",
       "name": "葉河",
       "stops": "普通",
-      "facilities": [],
+      "facilities": [
+        "無人駅",
+        "トイレなし",
+        "仮駅舎"
+      ],
       "transfer": "",
       "photos": [
         "assets/img/header-main.jpg",
