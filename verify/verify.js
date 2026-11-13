@@ -39,7 +39,15 @@
 
   function show() {
     root.innerHTML = '';
-    for (var i = 0; i < arguments.length; i++) if (arguments[i]) root.appendChild(arguments[i]);
+    // 部品のまとまり(配列)も、そのまま並べられるようにする
+    (function add(list) {
+      for (var i = 0; i < list.length; i++) {
+        var c = list[i];
+        if (!c) continue;
+        if (Array.isArray(c)) add(c);
+        else root.appendChild(c);
+      }
+    })(arguments);
   }
 
   function loading(text, sub) {
