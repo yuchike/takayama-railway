@@ -7,12 +7,13 @@
 <meta name="description" content="高山鐡道は、ROBLOX上の社員運行型鉄道プレースです。">
 <link rel="icon" href="assets/img/logo-square.jpg">
 <link rel="stylesheet" href="assets/style.css">
+<style>:root{--navy:#14286e;--green:#1f9a55;--lime:#c6f26b;--navy-deep:#0b1640}</style>
 
 </head>
 <body>
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html"><img src="assets/img/logo-wide.jpg" alt="高山鐡道 Takatetsu" width="160" height="49"></a>
+    <a class="brand" href="index.html"><img src="assets/img/logo-wide.jpg" alt="高山鐡道" width="160" height="49"></a>
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="メニュー">
     <label for="nav-toggle" class="nav-button" aria-hidden="true"><span></span><span></span><span></span></label>
     <nav class="site-nav"><a href="index.html">トップ</a><a href="about.html">高山鐡道とは</a><a href="map.html" aria-current="page">路線図</a><a href="fare.html">運賃</a><a href="status.html">運行状況</a><a href="news.html">お知らせ</a><a href="photos.html">写真集</a><a href="trivia.html">小ネタ情報</a><a href="company.html">会社概要</a></nav>
@@ -27,10 +28,8 @@
 <main class="content">
 <section class="prose">
 <figure class="route-map"><a href="assets/img/route-map.png"><img src="assets/img/route-map.png" alt="高山線はTK、足洗線はTAです。画像を押すと大きく表示されます。" loading="lazy"></a><figcaption>高山線はTK、足洗線はTAです。画像を押すと大きく表示されます。</figcaption></figure>
-<h2>高山本線</h2>
-<ol class="line"><li class="transfer"><a href="stations/sakuragaoka.html"><span class="code">TK01</span><span class="name">桜が丘</span></a><span class="xfer">→ OR線</span></li><li><a href="stations/kitasakuragaoka.html"><span class="code">TK02</span><span class="name">北桜が丘</span></a></li><li><a href="stations/hirogiri.html"><span class="code">TK03</span><span class="name">広桐</span></a></li><li><a href="stations/nishitakayama.html"><span class="code">TK04</span><span class="name">西高山</span></a></li><li class="transfer"><a href="stations/takayama.html"><span class="code">TK05</span><span class="name">高山</span></a><span class="xfer">→ 足洗支線</span></li><li><a href="stations/asama.html"><span class="code">TK06</span><span class="name">浅間</span></a></li><li><a href="stations/terasawa.html"><span class="code">TK07</span><span class="name">寺沢</span></a></li><li><a href="stations/yamaoka.html"><span class="code">TK08</span><span class="name">山丘</span></a></li><li><a href="stations/nishikyodo.html"><span class="code">TK09</span><span class="name">西京堂</span></a></li><li class="transfer"><a href="stations/kyodo.html"><span class="code">TK10</span><span class="name">京堂</span></a><span class="xfer">→ 空港線</span></li><li><a href="stations/st-mwf5dmjmqyv.html"><span class="code">TA02</span><span class="name">葉河</span></a></li><li><a href="stations/st-mwf5o0dj1j9.html"><span class="code">TA03</span><span class="name">転飯峠</span></a></li></ol>
-<h2>足洗支線</h2>
-<ol class="line branch"><li class="transfer"><a href="stations/takayama.html"><span class="code">TK05 TA01</span><span class="name">高山</span></a></li><li><a href="stations/st-mwf5dmjmqyv.html"><span class="code">TA02</span><span class="name">葉河</span></a></li><li><a href="stations/st-mwf5o0dj1j9.html"><span class="code">TA03</span><span class="name">転飯峠</span></a></li><li><span class="name">？？？</span></li><li><span class="name">足洗</span></li><li><span class="name">？？？</span></li><li><span class="name">？？？</span></li></ol>
+<h2 class="line-title" style="--line-color:#1f9a55">高山本線</h2><ol class="line" style="--line-color:#1f9a55"><li class="transfer"><a href="stations/sakuragaoka.html"><span class="code">TK01</span><span class="name">桜が丘</span></a><span class="xfer">→ OR線</span></li><li><a href="stations/kitasakuragaoka.html"><span class="code">TK02</span><span class="name">北桜が丘</span></a></li><li><a href="stations/hirogiri.html"><span class="code">TK03</span><span class="name">広桐</span></a></li><li><a href="stations/nishitakayama.html"><span class="code">TK04</span><span class="name">西高山</span></a></li><li class="transfer"><a href="stations/takayama.html"><span class="code">TK05</span><span class="name">高山</span></a><span class="xfer">→ 足洗支線・足洗支線</span></li><li><a href="stations/asama.html"><span class="code">TK06</span><span class="name">浅間</span></a></li><li><a href="stations/terasawa.html"><span class="code">TK07</span><span class="name">寺沢</span></a></li><li><a href="stations/yamaoka.html"><span class="code">TK08</span><span class="name">山丘</span></a></li><li><a href="stations/nishikyodo.html"><span class="code">TK09</span><span class="name">西京堂</span></a></li><li class="transfer"><a href="stations/kyodo.html"><span class="code">TK10</span><span class="name">京堂</span></a><span class="xfer">→ 空港線</span></li></ol>
+<h2 class="line-title" style="--line-color:#e9832b">足洗支線</h2><ol class="line" style="--line-color:#e9832b"><li class="transfer"><a href="stations/takayama.html"><span class="code">TA01</span><span class="name">高山</span></a><span class="xfer">→ 足洗支線・高山本線</span></li><li><a href="stations/st-mwf5dmjmqyv.html"><span class="code">TA02</span><span class="name">葉河</span></a></li><li><a href="stations/st-mwf5o0dj1j9.html"><span class="code">TA03</span><span class="name">転飯峠</span></a></li><li><span class="name">？？？</span></li><li><span class="name">足洗</span></li><li><span class="name">？？？</span></li><li><span class="name">？？？</span></li></ol>
 </section>
 </main>
 <footer class="site-footer">
