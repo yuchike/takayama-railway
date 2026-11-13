@@ -196,13 +196,15 @@
           "type": "line",
           "items": [
             {
-              "code": "TK05",
+              "code": "TK05 TA01",
               "name": "高山",
               "station": "takayama",
               "transfer": true
             },
             {
-              "name": "？？？"
+              "name": "葉河",
+              "code": "TA02",
+              "station": "st-mwf5dmjmqyv"
             },
             {
               "name": "転飯峠"
