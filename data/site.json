@@ -28,7 +28,7 @@
       "lime": "#c6f26b",
       "footer": "#0b1640"
     },
-    "build": "mwf6o813-d2073a"
+    "build": "mwf6qs7w-60ae16"
   },
   "nav": [
     {
@@ -720,7 +720,7 @@
       "id": "takayama",
       "name": "高山本線",
       "color": "#1f9a55",
-      "note": "",
+      "note": "京堂から桜ヶ丘を結ぶ路線、田舎っぽいところもあれば京堂駅付近からは街中が広まる本線",
       "stops": [
         {
           "station": "sakuragaoka"
@@ -758,7 +758,7 @@
       "id": "ashiarai",
       "name": "足洗支線",
       "color": "#e9832b",
-      "note": "",
+      "note": "高山から高山市の末端の足洗までを結ぶローカル線",
       "stops": [
         {
           "station": "takayama",
