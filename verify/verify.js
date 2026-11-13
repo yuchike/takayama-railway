@@ -174,12 +174,46 @@
       var input = h('input', { type: 'text', id: 'username', maxlength: '20', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', placeholder: '例: Takayama_Driver' });
       var submit = function () { act('code/start', { username: input.value.trim() }); };
       input.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
-      show(stepsBar(2), who(state), h('h1', { text: 'Robloxアカウントの確認' }), flashBox(state),
-        state.oauthUrl ? h('a', { class: 'button', href: state.oauthUrl }, 'Robloxでログインして確認') : null,
-        state.oauthUrl ? h('p', { class: 'or', text: 'または' }) : null,
+      var methods = [];
+      if (state.gameEnabled) {
+        methods.push(h('div', { class: 'method' },
+          h('h2', { text: '🎮 ゲーム内で認証' }),
+          h('p', { class: 'muted small', text: '高山鐡道のゲームに入って、ここに出る6桁の数字を入力します。いちばん簡単です。' }),
+          primary('ゲーム内で認証する', function () { act('game/start'); })));
+      }
+      if (state.oauthUrl) {
+        methods.push(h('div', { class: 'method' },
+          h('h2', { text: '🔑 Robloxでログイン' }),
+          h('p', { class: 'muted small', text: 'Roblox公式のログイン画面で確認します。' }),
+          h('a', { class: 'button', href: state.oauthUrl }, 'Robloxでログインして確認')));
+      }
+      methods.push(h('div', { class: 'method' },
+        h('h2', { text: '📝 プロフィールに確認コードを貼る' }),
         h('label', { for: 'username', text: 'Robloxのユーザー名(@の後ろの部分。表示名ではありません)' }), input,
-        state.oauthUrl ? secondary('確認コードを出す', submit) : primary('確認コードを出す', submit), helpBox(state));
+        methods.length ? secondary('確認コードを出す', submit) : primary('確認コードを出す', submit)));
+      show(stepsBar(2), who(state), h('h1', { text: 'Robloxアカウントの確認' }), flashBox(state),
+        h('p', { class: 'muted', text: 'やりやすい方法をひとつ選んでください。' }), methods, helpBox(state));
       return;
+    }
+
+    if (state.step === 'game') {
+      var poll = setInterval(function () {
+        if (busy || !document.body.contains(codeBig)) return clearInterval(poll);
+        request('GET', '/api/verify/state?t=' + encodeURIComponent(token)).then(function (st) {
+          if (st && st.step !== 'game') { clearInterval(poll); render(st); }
+        }, function () { /* 次の確認で再試行 */ });
+      }, 4000);
+      var codeBig = h('div', { class: 'game-code', 'aria-label': '入力する数字' }, (state.gameCode || '').split('').map(function (d) { return h('span', { text: d }); }));
+      return show(stepsBar(2), who(state), h('h1', { text: 'ゲーム内で認証' }), flashBox(state),
+        h('p', { text: '高山鐡道のゲームに入って、画面の「Discord認証」ボタンから次の数字を入力してください。' }),
+        codeBig,
+        h('a', { class: 'button lime', href: state.gameUrl, target: '_blank', rel: 'noopener noreferrer' }, 'ゲームを開く'),
+        h('ol', null,
+          h('li', { text: '上のボタンからゲームに入る' }),
+          h('li', { text: '画面の「Discord認証」ボタンを押す' }),
+          h('li', { text: 'この6桁の数字を入力して「送信」を押す' })),
+        h('p', { class: 'center muted small' }, h('span', { class: 'spinner small-spinner', 'aria-hidden': 'true' }), 'ゲームでの入力を待っています…(入力すると自動で次に進みます)'),
+        secondary('別の方法にする', function () { clearInterval(poll); act('game/cancel'); }), helpBox(state));
     }
 
     if (state.step === 'group') {
