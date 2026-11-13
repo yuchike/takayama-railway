@@ -255,16 +255,7 @@
         },
         {
           "type": "text",
-          "text": "特急券のご予約、空席確認は Takayama EX をご利用ください。"
-        },
-        {
-          "type": "button",
-          "label": "特急券のご購入はコチラから",
-          "href": "https://smart-ex.takayama-railway.f5.si/"
-        },
-        {
-          "type": "note",
-          "text": "試験導入中です。Takayama EX のページに移動します。"
+          "text": "特急券のご予約、空席確認は 券売機をご利用ください。"
         }
       ]
     },
