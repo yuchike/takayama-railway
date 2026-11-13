@@ -18,10 +18,6 @@
       {
         "label": "ROBLOXグループ",
         "href": "https://www.roblox.com/ja/communities/980015141/unnamed#!/about"
-      },
-      {
-        "label": "中文",
-        "href": "https://sites.google.com/view/takayama-railway-chinese"
       }
     ],
     "logoWide": "assets/img/logo-wide.jpg",
@@ -32,7 +28,7 @@
       "lime": "#c6f26b",
       "footer": "#0b1640"
     },
-    "build": "mwf6e5x7-748cdc"
+    "build": "mwf6efky-51fcfd"
   },
   "nav": [
     {
